@@ -227,7 +227,7 @@ function App() {
             <form className="my-6" onChange={handleChange}>
               <label htmlFor="pocName">POC or Caller Name</label>
               <input
-                defaultValue={POC.pocName}
+                value={POC.pocName}
                 className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
                 type="text"
                 id="pocName"
@@ -235,7 +235,7 @@ function App() {
 
               <label htmlFor="dateTime">Date and Time</label>
               <input
-                defaultValue={POC.dateTime}
+                value={POC.dateTime}
                 className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
                 type="datetime-local"
                 id="dateTime"
@@ -243,7 +243,7 @@ function App() {
 
               <label htmlFor="transactionID">Transaction ID</label>
               <input
-                defaultValue={POC.transactionID}
+                value={POC.transactionID}
                 className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
                 type="text"
                 id="transactionID"
@@ -253,7 +253,7 @@ function App() {
                 Reason for the {transferred ? "Transfer" : "Call"}:
               </label>
               <textarea
-                defaultValue={POC.callReason}
+                value={POC.callReason}
                 className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
                 id="callReason"
                 rows="4"
@@ -277,7 +277,7 @@ function App() {
                 </select>
               ) : (
                 <textarea
-                  defaultValue={POC.resolution}
+                  value={POC.resolution}
                   className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
                   id="resolution"
                   rows="4"

@@ -122,9 +122,9 @@ function App() {
   return (
     <div className="flex flex-col h-screen bg-neutral-800">
       <header className="">
-        <nav className="w-full bg-white border-gray-200 bg-neutral-900">
+        <nav className="w-full bg-neutral-900 border-gray-200 bg-neutral-900">
           <div className="flex flex-wrap items-center justify-between p-4">
-            <h2 className="pl-3 pr-4 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <h2 className="pl-3 pr-4 self-center text-2xl font-semibold whitespace-nowrap">
               Easy Notes
             </h2>
             <div className="w-full md:block md:w-auto" id="navbar-dropdown">

@@ -221,7 +221,7 @@ function App() {
         </nav>
       </header>
       {popup}
-      <div className="flex flex-col md:flex-col sm:flex-col xl:flex-row h-screen items-center overflow-auto py-6 md:py-6 sm:py-6">
+      <div className="flex flex-col sm:flex-col md:flex-row h-screen items-center overflow-auto py-6 md:py-6 sm:py-6">
         <div className="flex w-full h-auto md:justify-center items-center">
           <div className="flex flex-col justify-center container mx-16 p-4 bg-gray-700 rounded-lg shadow-lg">
             <form className="my-6" onChange={handleChange}>

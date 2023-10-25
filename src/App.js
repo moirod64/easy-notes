@@ -39,6 +39,8 @@ function App() {
 
   const [transferred, setTransferred] = useState(false);
 
+  const [ticket, setTicket] = useState(false);
+
   const [CopyNotice, setCopyNotice] = useState(false);
 
   const [POC, setPOC] = useState(notesForm);
@@ -70,9 +72,14 @@ function App() {
     setPOC({ ...POC, dateTime: date });
   };
 
-  const onChecked = () => {
+  const onTransferChecked = () => {
     setTransferred(!transferred);
     if (!transferred) setPOC({ ...POC, department: "Cancelations" });
+  };
+
+  const onTicketChecked = () => {
+    setTicket(!ticket);
+    if (!ticket) setPOC({ ...POC, ticketNumber: "" });
   };
 
   const clearForm = (n) => {
@@ -84,8 +91,10 @@ function App() {
       callReason: "",
       department: "",
       resolution: "",
+      ticketNumber: "",
     });
     setTransferred(false);
+    setTicket(false);
   };
 
   useEffect(() => {
@@ -104,7 +113,7 @@ function App() {
 
   if (CopyNotice.copied) {
     popup = (
-      <span className="bottom-5 left-1/3 right-1/3 absolute z-100 bg-green-100 text-green-800 text-sm text-center font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+      <span className="bottom-5 left-1/3 right-1/3 absolute z-100 bg-green-100 text-green-800 text-sm text-center font-medium mr-2 px-2.5 py-0.5 rounded bg-green-300">
         Copied to Clipboard!
       </span>
     );
@@ -228,52 +237,70 @@ function App() {
       {popup}
       <div className="flex flex-col sm:flex-col md:flex-row h-screen items-center overflow-auto py-6 md:py-6 sm:py-6">
         <div className="flex w-full h-auto md:justify-center items-center">
-          <div className="flex flex-col justify-center container mx-16 p-4 bg-gray-700 rounded-lg shadow-lg">
+          <div className="flex flex-col justify-center container mx-16 p-4 bg-slate-700 rounded-lg shadow-lg">
             <form className="my-6" onChange={handleChange}>
-              <label htmlFor="pocName">POC or Caller Name</label>
+              <label className="text-xl text-white font-bold" htmlFor="pocName">
+                POC or Caller Name
+              </label>
               <input
                 value={POC.pocName}
-                className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
                 type="text"
                 id="pocName"
               />
 
-              <label htmlFor="dateTime">Date and Time</label>
+              <label
+                className="text-xl text-white font-bold"
+                htmlFor="dateTime"
+              >
+                Date and Time
+              </label>
               <input
                 onClick={setDate}
                 value={POC.dateTime}
-                className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
                 type="text"
                 id="dateTime"
               />
 
-              <label htmlFor="transactionID">Transaction ID</label>
+              <label
+                className="text-xl text-white font-bold"
+                htmlFor="transactionID"
+              >
+                Transaction ID
+              </label>
               <input
                 value={POC.transactionID}
-                className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
                 type="text"
                 id="transactionID"
               />
 
-              <label htmlFor="callReason">
-                Reason for the {transferred ? "Transfer" : "Call"}:
+              <label
+                className="text-xl text-white font-bold"
+                htmlFor="callReason"
+              >
+                Reason for the {transferred ? "Transfer" : "Call"}
               </label>
               <textarea
                 value={POC.callReason}
-                className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
                 id="callReason"
                 rows="4"
                 cols="50"
               />
 
-              <label htmlFor="resolution">
-                {transferred ? "Department" : "Resolution:"}
+              <label
+                className="text-xl text-white font-bold"
+                htmlFor="resolution"
+              >
+                {transferred ? "Department" : "Resolution"}
               </label>
               {transferred ? (
                 <select
                   id="department"
                   name="department"
-                  className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500 mb-20"
+                  className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400 mb-20"
                 >
                   {phoneNumberNames.map((i, arr) => (
                     <option key={arr} value={i}>
@@ -284,13 +311,33 @@ function App() {
               ) : (
                 <textarea
                   value={POC.resolution}
-                  className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
+                  className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
                   id="resolution"
                   rows="4"
                   cols="50"
                 ></textarea>
               )}
-              <div className="flex flex-row items-center justify-between">
+              {ticket ? (
+                <label
+                  className="text-xl text-white font-bold"
+                  htmlFor="ticketNumber"
+                >
+                  Ticket ID
+                </label>
+              ) : (
+                ""
+              )}
+              {ticket ? (
+                <input
+                  value={POC.ticketNumber}
+                  className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
+                  type="text"
+                  id="ticketNumber"
+                />
+              ) : (
+                ""
+              )}
+              <div className="flex md:flex-col xl:flex-row items-center justify-between">
                 <button
                   onClick={clearForm}
                   type="submit"
@@ -298,16 +345,32 @@ function App() {
                 >
                   Reset All
                 </button>
-                <div>
+                <div className="flex sm:flex-row items-center">
                   <input
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     id="transferred"
                     type="checkbox"
-                    onChange={onChecked}
+                    onChange={onTransferChecked}
                     checked={transferred}
                   />
-                  <label className="mx-2" htmlFor="transferred">
+                  <label
+                    className="text-base text-white font-semibold mx-2"
+                    htmlFor="transferred"
+                  >
                     Was this call transferred?
+                  </label>
+                  <input
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    id="ticket"
+                    type="checkbox"
+                    onChange={onTicketChecked}
+                    checked={ticket}
+                  />
+                  <label
+                    className="text-base text-white font-semibold mx-2"
+                    htmlFor="ticket"
+                  >
+                    Was a ticket created?
                   </label>
                 </div>
               </div>
@@ -316,30 +379,41 @@ function App() {
         </div>
         {/* Displaying Form */}
         <div className="flex w-full h-auto justify-center items-center py-6 md:py-6 sm:py-6">
-          <div className="flex flex-col justify-center container mx-16 p-4 bg-gray-700 rounded-lg shadow-lg">
+          <div className="flex flex-col justify-center container mx-16 p-4 bg-slate-700 rounded-lg shadow-lg">
             <div id="completedNotes">
-              <div className="w-full my-2 p-6 break-all bg-gray-300 hover:bg-gray-400 rounded-lg">
+              <div className="w-full my-2 p-6 break-all bg-gray-300  rounded-lg">
                 Point of Contact: {POC.pocName}
               </div>
-              <div className="w-full my-1 p-6 break-all bg-gray-300 hover:bg-gray-400 rounded-lg">
+              <div className="w-full my-1 p-6 break-all bg-gray-300 rounded-lg">
                 Date & Time: {POC.dateTime}
               </div>
-              <div className="w-full my-1 p-6 break-all bg-gray-300 hover:bg-gray-400 rounded-lg">
+              <div className="w-full my-1 p-6 break-all bg-gray-300 rounded-lg">
                 Transaction ID: {POC.transactionID}
               </div>
-              <div className="w-full my-1 p-6 break-all bg-gray-300 hover:bg-gray-400 rounded-lg">
-                Reason: {POC.callReason}
-              </div>
               {transferred ? (
-                <div className="w-full my-1 p-6 break-all bg-gray-300 hover:bg-gray-400 rounded-lg">
-                  Resolution: For further assistance, contact was transferred to{" "}
-                  {POC.department}. As the caller needed assistance with{" "}
-                  {POC.callReason}
+                ""
+              ) : (
+                <div className="w-full my-1 p-6 break-all bg-gray-300 rounded-lg">
+                  Reason: {POC.callReason}
+                </div>
+              )}
+              {transferred ? (
+                <div className="w-full my-1 p-6 break-all bg-gray-300 rounded-lg">
+                  Resolution & Transfer Reason: Had client transferred over to
+                  our {POC.department} department. Reason being, the client
+                  needed more assistance with {POC.callReason}
                 </div>
               ) : (
-                <div className="w-full my-1 p-6 break-all bg-gray-300 hover:bg-gray-400 rounded-lg">
+                <div className="w-full my-1 p-6 break-all bg-gray-300 rounded-lg">
                   Resolution: {POC.resolution}
                 </div>
+              )}
+              {ticket ? (
+                <div className="w-full my-1 p-6 break-all bg-gray-300 rounded-lg">
+                  Ticket ID: {POC.ticketNumber}
+                </div>
+              ) : (
+                ""
               )}
             </div>
             <CopyToClipboard

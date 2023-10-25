@@ -122,40 +122,37 @@ function App() {
   return (
     <div className="flex flex-col h-screen bg-neutral-800">
       <header className="">
-        <nav className="w-full bg-neutral-900 border-gray-200 bg-neutral-900">
+        <nav className="w-full text-white bg-neutral-900 border-gray-200 bg-neutral-900">
           <div className="flex flex-wrap items-center justify-between p-4">
             <h2 className="pl-3 pr-4 self-center text-2xl font-semibold whitespace-nowrap">
               Easy Notes
             </h2>
             <div className="w-full md:block md:w-auto" id="navbar-dropdown">
-              <ul className="flex font-medium md:p-0 flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white md:bg-neutral-900">
+              <ul className="flex font-medium md:p-0 flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-neutral-900">
                 <li>
                   <button
                     onClick={dropdownChange}
                     id="phoneNumbers"
                     data-dropdown-toggle="dropdownNavbar"
-                    className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                    className="flex items-center justify-between text-white w-full rounded md:border-0 hover:text-indigo-400 md:p-0 md:w-auto hover:scale-105"
                   >
                     Phone numbers
                   </button>
                   <div
                     id="dropdownNavbar"
-                    className={`z-10 w-fit font-normal bg-white divide-y divide-gray-100 rounded-sm shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${
+                    className={`z-10 w-fit font-normal bg-indigo-300 divide-y divide-gray-100 rounded-lg shadow absolute ${
                       dropdown.phoneNumbers ? "" : "hidden"
                     }`}
                   >
                     <ul
-                      className="w-fit py-1 text-sm text-gray-700"
+                      className="w-fit p-2 text-sm text-gray-800"
                       aria-labelledby="dropdownLargeButton"
                     >
                       {phoneNumbersList.map((i, arr) => (
-                        <li
-                          className="font-bold w-full text-gray-300"
-                          key={arr}
-                        >
+                        <li className="font-bold w-full" key={arr}>
                           <CopyToClipboard
                             key={i}
-                            className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="block w-full px-3 py-2 hover:bg-indigo-500 rounded-lg"
                             text={i}
                             onCopy={() => {
                               setCopyNotice({ copied: true });
@@ -170,60 +167,60 @@ function App() {
                     </ul>
                   </div>
                 </li>
-                <li>
+                <li className="pr-3">
                   <button
                     onClick={dropdownChange}
                     id="importantLinks"
                     data-dropdown-toggle="dropdownNavbar"
-                    className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                    className="flex items-center justify-between text-white w-full rounded md:border-0 hover:text-indigo-400 md:p-0 md:w-auto hover:scale-105"
                   >
                     Important Links
                   </button>
                   <div
                     id="dropdownNavbar"
-                    className={`z-10 w-fit font-normal bg-white divide-y divide-gray-100 rounded-sm shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${
+                    className={`z-10 w-fit font-normal bg-indigo-300 divide-y divide-gray-100 rounded-lg shadow absolute ${
                       dropdown.importantLinks ? "" : "hidden"
                     }`}
                   >
                     <ul
-                      className="w-fit py-1 text-sm text-gray-700"
+                      className="w-fit p-2 text-sm text-gray-800"
                       aria-labelledby="dropdownLargeButton"
                     >
-                      <li className="font-bold w-full text-gray-300">
+                      <li className="font-bold w-full">
                         <a
-                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block w-full px-3 py-2 hover:bg-indigo-500 rounded-lg"
                           HREF="https://payroll123.net/pro/portal/VIVDO/"
                         >
                           Payroll Dashboard
                         </a>
                       </li>
-                      <li className="font-bold w-full text-gray-300">
+                      <li className="font-bold w-full">
                         <a
-                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block w-full px-3 py-2 hover:bg-indigo-500 rounded-lg"
                           HREF="https://dexmedia.okta.com/app/UserHome"
                         >
                           OKTA | Live Version
                         </a>
                       </li>
-                      <li className="font-bold w-full text-gray-300">
+                      <li className="font-bold w-full">
                         <a
-                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block w-full px-3 py-2 hover:bg-indigo-500 rounded-lg"
                           HREF="https://command.thryv.com/"
                         >
                           Command Center
                         </a>
                       </li>
-                      <li className="font-bold w-full text-gray-300">
+                      <li className="font-bold w-full">
                         <a
-                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block w-full px-3 py-2 hover:bg-indigo-500 rounded-lg"
                           HREF="https://emp.thryv.com/app"
                         >
                           Business Center
                         </a>
                       </li>
-                      <li className="font-bold w-full text-gray-300">
+                      <li className="font-bold w-full">
                         <a
-                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block w-full px-3 py-2 hover:bg-indigo-500 rounded-lg"
                           HREF="https://learn.thryv.com/hc/en-us"
                         >
                           Learn | Thryv
@@ -344,7 +341,7 @@ function App() {
                 <button
                   onClick={clearForm}
                   type="submit"
-                  className="text-black bg-indigo-400 hover:bg-indigo-500 focus:ring-4 focus:ring-indigo-800 font-semibold rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
+                  className="text-black bg-indigo-400 hover:bg-indigo-500 focus:ring-4 focus:ring-indigo-800 font-semibold rounded-lg text-sm px-5 py-2.5 mr-2 focus:outline-none"
                 >
                   Reset All
                 </button>

@@ -65,6 +65,11 @@ function App() {
     setPOC({ ...POC, [id]: value });
   };
 
+  const setDate = () => {
+    const date = new Date().toString().slice(0, 24);
+    setPOC({ ...POC, dateTime: date });
+  };
+
   const onChecked = () => {
     setTransferred(!transferred);
     if (!transferred) setPOC({ ...POC, department: "Cancelations" });
@@ -104,7 +109,7 @@ function App() {
       </span>
     );
   }
-
+  console.log(POC.dateTime);
   return (
     <div className="flex flex-col h-screen bg-slate-800">
       <header className="">
@@ -235,9 +240,10 @@ function App() {
 
               <label htmlFor="dateTime">Date and Time</label>
               <input
+                onClick={setDate}
                 value={POC.dateTime}
                 className="block w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-slate-500"
-                type="datetime-local"
+                type="text"
                 id="dateTime"
               />
 

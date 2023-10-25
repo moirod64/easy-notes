@@ -120,15 +120,15 @@ function App() {
   }
   console.log(POC.dateTime);
   return (
-    <div className="flex flex-col h-screen bg-slate-800">
+    <div className="flex flex-col h-screen bg-neutral-800">
       <header className="">
-        <nav className="w-full bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between p-4">
+        <nav className="w-full bg-white border-gray-200 bg-neutral-900">
+          <div className="flex flex-wrap items-center justify-between p-4">
             <h2 className="pl-3 pr-4 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Easy Notes
             </h2>
             <div className="w-full md:block md:w-auto" id="navbar-dropdown">
-              <ul className="flex font-medium md:p-0 flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white  md:dark:bg-gray-900 ">
+              <ul className="flex font-medium md:p-0 flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white md:bg-neutral-900">
                 <li>
                   <button
                     onClick={dropdownChange}
@@ -140,25 +140,28 @@ function App() {
                   </button>
                   <div
                     id="dropdownNavbar"
-                    className={`z-10 w-fit font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${
+                    className={`z-10 w-fit font-normal bg-white divide-y divide-gray-100 rounded-sm shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${
                       dropdown.phoneNumbers ? "" : "hidden"
                     }`}
                   >
                     <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-400"
+                      className="w-fit py-1 text-sm text-gray-700"
                       aria-labelledby="dropdownLargeButton"
                     >
                       {phoneNumbersList.map((i, arr) => (
-                        <li key={arr}>
+                        <li
+                          className="font-bold w-full text-gray-300"
+                          key={arr}
+                        >
                           <CopyToClipboard
                             key={i}
-                            className="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                             text={i}
                             onCopy={() => {
                               setCopyNotice({ copied: true });
                             }}
                           >
-                            <button key={arr + 1} className="">
+                            <button key={arr + 1}>
                               {phoneNumberNames[arr]}
                             </button>
                           </CopyToClipboard>
@@ -178,50 +181,50 @@ function App() {
                   </button>
                   <div
                     id="dropdownNavbar"
-                    className={`z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${
+                    className={`z-10 w-fit font-normal bg-white divide-y divide-gray-100 rounded-sm shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${
                       dropdown.importantLinks ? "" : "hidden"
                     }`}
                   >
                     <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-400"
+                      className="w-fit py-1 text-sm text-gray-700"
                       aria-labelledby="dropdownLargeButton"
                     >
-                      <li>
+                      <li className="font-bold w-full text-gray-300">
                         <a
+                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                           HREF="https://payroll123.net/pro/portal/VIVDO/"
-                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Payroll Dashboard
                         </a>
                       </li>
-                      <li>
+                      <li className="font-bold w-full text-gray-300">
                         <a
+                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                           HREF="https://dexmedia.okta.com/app/UserHome"
-                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           OKTA | Live Version
                         </a>
                       </li>
-                      <li>
+                      <li className="font-bold w-full text-gray-300">
                         <a
+                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                           HREF="https://command.thryv.com/"
-                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Command Center
                         </a>
                       </li>
-                      <li>
+                      <li className="font-bold w-full text-gray-300">
                         <a
+                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                           HREF="https://emp.thryv.com/app"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                         >
                           Business Center
                         </a>
                       </li>
-                      <li>
+                      <li className="font-bold w-full text-gray-300">
                         <a
+                          className="block w-full px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                           HREF="https://learn.thryv.com/hc/en-us"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                         >
                           Learn | Thryv
                         </a>
@@ -237,14 +240,14 @@ function App() {
       {popup}
       <div className="flex flex-col sm:flex-col md:flex-row h-screen items-center overflow-auto py-6 md:py-6 sm:py-6">
         <div className="flex w-full h-auto md:justify-center items-center">
-          <div className="flex flex-col justify-center container mx-16 p-4 bg-slate-700 rounded-lg shadow-lg">
+          <div className="flex flex-col justify-center container mx-16 p-4 bg-neutral-700 rounded-lg shadow-lg">
             <form className="my-6" onChange={handleChange}>
               <label className="text-xl text-white font-bold" htmlFor="pocName">
                 POC or Caller Name
               </label>
               <input
                 value={POC.pocName}
-                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
                 type="text"
                 id="pocName"
               />
@@ -258,7 +261,7 @@ function App() {
               <input
                 onClick={setDate}
                 value={POC.dateTime}
-                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
                 type="text"
                 id="dateTime"
               />
@@ -271,7 +274,7 @@ function App() {
               </label>
               <input
                 value={POC.transactionID}
-                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
                 type="text"
                 id="transactionID"
               />
@@ -284,7 +287,7 @@ function App() {
               </label>
               <textarea
                 value={POC.callReason}
-                className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
+                className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
                 id="callReason"
                 rows="4"
                 cols="50"
@@ -300,7 +303,7 @@ function App() {
                 <select
                   id="department"
                   name="department"
-                  className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400 mb-20"
+                  className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400 mb-20"
                 >
                   {phoneNumberNames.map((i, arr) => (
                     <option key={arr} value={i}>
@@ -311,7 +314,7 @@ function App() {
               ) : (
                 <textarea
                   value={POC.resolution}
-                  className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
+                  className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
                   id="resolution"
                   rows="4"
                   cols="50"
@@ -330,7 +333,7 @@ function App() {
               {ticket ? (
                 <input
                   value={POC.ticketNumber}
-                  className="block text-base w-full p-4 my-2 text-black border rounded-lg bg-gray-50 sm:text-md bg-gray-400"
+                  className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
                   type="text"
                   id="ticketNumber"
                 />
@@ -341,7 +344,7 @@ function App() {
                 <button
                   onClick={clearForm}
                   type="submit"
-                  className="text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  className="text-black bg-indigo-400 hover:bg-indigo-500 focus:ring-4 focus:ring-indigo-800 font-semibold rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
                 >
                   Reset All
                 </button>
@@ -379,7 +382,7 @@ function App() {
         </div>
         {/* Displaying Form */}
         <div className="flex w-full h-auto justify-center items-center py-6 md:py-6 sm:py-6">
-          <div className="flex flex-col justify-center container mx-16 p-4 bg-slate-700 rounded-lg shadow-lg">
+          <div className="flex flex-col justify-center container mx-16 p-4 bg-neutral-700 rounded-lg shadow-lg">
             <div id="completedNotes">
               <div className="w-full my-2 p-6 break-all bg-gray-300  rounded-lg">
                 Point of Contact: {POC.pocName}
@@ -422,7 +425,7 @@ function App() {
                 setCopyNotice({ copied: true });
               }}
             >
-              <button className="text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <button className="text-black bg-indigo-400 hover:bg-indigo-500 focus:ring-4 focus:ring-indigo-800 font-semibold rounded-lg text-md px-5 py-2.5 m-4 focus:outline-none ">
                 Copy All
               </button>
             </CopyToClipboard>

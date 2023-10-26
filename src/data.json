@@ -1,0 +1,40 @@
+{
+  "phoneNumbersList": [
+    "8443397494",
+    "8449984798",
+    "2008109",
+    "8449984798",
+    "8884798729",
+    "2008101",
+    "2009965",
+    "2003075",
+    "4234276001",
+    "8446546169"
+  ],
+  "phoneNumberNames": [
+    "Cancellations",
+    "Client Care",
+    "Marketing Support",
+    "Web Mods",
+    "Thryv Pay",
+    "URL Management",
+    "Social Support",
+    "GMB Expert",
+    "Bristol Team",
+    "Vivial Support"
+  ],
+  "importantLinks": [
+    "https://payroll123.net/pro/portal/VIVDO/",
+    "https://dexmedia.okta.com/app/UserHome",
+    "https://command.thryv.com/",
+    "https://emp.thryv.com/app",
+    "https://learn.thryv.com/hc/en-us"
+  ],
+  "importantLinksNames": [
+    "Payroll Dashboard",
+    "OKTA | LIVE",
+    "Command Center",
+    "Business Center",
+    "Learn | Thryv"
+  ]
+}

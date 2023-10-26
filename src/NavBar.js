@@ -30,13 +30,13 @@ const NavBar = ({ state, toggle }) => {
   return (
     <nav className="w-full text-white bg-neutral-900 border-gray-200 bg-neutral-900">
       <div className="flex flex-wrap items-center justify-between p-4">
-        <h2 className="pl-3 pr-4 self-center text-2xl font-semibold whitespace-nowrap">
+        <h2 className="pl-3 pr-4 pb-2 self-center text-2xl font-semibold whitespace-nowrap">
           Easy Notes
         </h2>
         {popup}
         <div className="w-full md:block md:w-auto" id="navbar-dropdown">
           <ul className="flex font-medium md:p-0 flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-neutral-900">
-            <li>
+            <li className="pr-3 pl-3">
               <button
                 onClick={dropdownChange}
                 id="phoneNumbers"
@@ -77,7 +77,7 @@ const NavBar = ({ state, toggle }) => {
                 onClick={dropdownChange}
                 id="importantLinks"
                 data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center justify-between text-white w-full rounded md:border-0 hover:text-indigo-400 md:p-0 md:w-auto hover:scale-105"
+                className="flex items-center justify-between text-white w-full rounded md:border-0 hover:text-indigo-400 md:w-auto hover:scale-105"
               >
                 Important Links
               </button>

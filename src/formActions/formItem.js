@@ -9,7 +9,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
 
   return (
     <div className="flex w-full h-auto basis-1/2 md:justify-center items-center md:my-0 sm:my-4 my-4">
-      <div className="flex flex-col justify-center container mx-10 p-4 bg-neutral-700 rounded-lg shadow-lg">
+      <div className="flex flex-col justify-center container mx-10 my-8 p-4 bg-neutral-700 rounded-lg shadow-lg">
         {/* FORM */}
         <form className="my-6" onChange={handleChange}>
           <label className="text-xl text-white font-bold" htmlFor="pocName">

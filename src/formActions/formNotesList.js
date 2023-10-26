@@ -8,7 +8,7 @@ const NotesList = () => {
   const dispatch = useContext(DispatchContext);
 
   return (
-    <div className="md:flex w-3/4 mb-0 h-60 overflow-x-auto shadow-md rounded-lg hidden">
+    <div className="md:flex w-3/4 mb-0 mt-16 h-60 overflow-x-auto shadow-md rounded-lg hidden">
       <table className="w-full text-sm text-left text-neutral-800 overflow-x-auto ">
         <thead className="text-xs text-white font-bold uppercase bg-indigo-600">
           <tr>

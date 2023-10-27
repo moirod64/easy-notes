@@ -17,7 +17,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
           </label>
           <input
             value={value.pocName}
-            className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
+            className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
             type="text"
             id="pocName"
           />
@@ -28,7 +28,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
           <input
             onClick={handleChange}
             value={value.dateTime}
-            className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
+            className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
             type="text"
             id="dateTime"
           />
@@ -41,7 +41,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
           </label>
           <input
             value={value.transactionID}
-            className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
+            className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
             type="text"
             id="transactionID"
           />
@@ -54,7 +54,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
           </label>
           <textarea
             value={state.transferred ? value.resolution : value.callReason}
-            className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
+            className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
             id={state.transferred ? "resolution" : "callReason"}
             rows="4"
             cols="50"
@@ -68,7 +68,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
             <select
               id="department"
               name="department"
-              className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400 mb-20"
+              className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400 mb-20"
             >
               {/* MAPPING SELEC BOX */}
               {data.phoneNumberNames.map((i, arr) => (
@@ -80,7 +80,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
           ) : (
             <textarea
               value={state.transferred ? "" : value.resolution}
-              className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
+              className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
               id={state.transferred ? "callReason" : "resolution"}
               rows="4"
               cols="50"
@@ -97,7 +97,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
               </label>
               <input
                 value={value.ticketNumber}
-                className="block text-base w-full p-4 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
+                className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
                 type="text"
                 id="ticketNumber"
               />

@@ -35,7 +35,7 @@ const FormView = ({ value, state, toggle }) => {
   }
 
   return (
-    <div className="flex w-full h-auto justify-center items-center basis-1/2 md:my-0 sm:my-4 my-4">
+    <div className="flex w-full h-auto justify-center self-center basis-1/2 md:my-0 sm:my-4 my-4">
       <div className="flex flex-col justify-center container mx-10 my-8 p-4 bg-neutral-700 rounded-lg shadow-lg">
         <div id="completedNotes">
           <div className="w-full my-2 p-6 break-all bg-gray-300  rounded-lg">

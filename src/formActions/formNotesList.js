@@ -47,21 +47,27 @@ const NotesList = () => {
                 >
                   {notes.note.pocName}
                 </th>
-                <td className="px-6 py-4 break-all">{notes.note.dateTime}</td>
-                <td className="px-6 py-4 break-all">
+                <td className="px-4 py-2 break-normal">
+                  {notes.note.dateTime}
+                </td>
+                <td className="px-4 py-2 break-normal">
                   {notes.note.transactionID}
                 </td>
-                <td className="px-6 py-4 break-all">{notes.note.callReason}</td>
-                <td className="px-6 py-4 break-all">{notes.note.resolution}</td>
-                <td className="px-6 py-4 break-all">
+                <td className="px-4 py-2 break-normal">
+                  {notes.note.callReason}
+                </td>
+                <td className="px-4 py-2 break-normal">
+                  {notes.note.resolution}
+                </td>
+                <td className="px-4 py-2 break-normal">
                   {notes.note.ticketNumber}
                 </td>
-                <td className="px-6 py-4 break-all">
+                <td className="px-4 py-2 break-normal">
                   <button
                     onClick={() => dispatch({ type: "REMOVE", id: notes.id })}
                     id="deleteButton"
                     type="button"
-                    className="text-black font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-800 rounded-lg text-sm px-3 py-1.5 focus:outline-none"
+                    className="text-black font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-800 rounded-lg text-sm px-3 py-1.5 focus:outline-none break-normal"
                   >
                     Delete
                   </button>

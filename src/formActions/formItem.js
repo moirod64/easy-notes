@@ -1,5 +1,3 @@
-import data from "../data.json";
-
 const FormItem = ({ value, handleChange, reset, state, toggle }) => {
   // Reset Values from State and Turns off Checkboxes
   const handleReset = (e) => {
@@ -63,29 +61,7 @@ const FormItem = ({ value, handleChange, reset, state, toggle }) => {
           <label className="text-xl text-white font-bold" htmlFor="resolution">
             {state.transferred ? "Department" : "Resolution"}
           </label>
-          {/* CONDITIONAL TO SHOW IF IT'S BEING TRANSFERRED */}
-          {state.transferred ? (
-            <select
-              id="department"
-              name="department"
-              className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400 mb-20"
-            >
-              {/* MAPPING SELEC BOX */}
-              {data.phoneNumberNames.map((i, arr) => (
-                <option key={arr} value={i}>
-                  {i}
-                </option>
-              ))}
-            </select>
-          ) : (
-            <textarea
-              value={state.transferred ? "" : value.resolution}
-              className="block text-base w-full p-2 my-2 text-black border rounded-lg sm:text-md bg-gray-400"
-              id={state.transferred ? "callReason" : "resolution"}
-              rows="4"
-              cols="50"
-            ></textarea>
-          )}
+
           {/* CONDITIONAL IF A TICKET WAS CREATED FOR THE CONTACT */}
           {state.ticket ? (
             <>
